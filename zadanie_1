@@ -1,0 +1,37 @@
+#1. Объявить грид/массив/коллекцию/лист (что удобнее) со значениями:
+#15, 42, 79, 45, -79, 150, 0, 90, 157.
+#2. Произвести сортировку по убыванию.
+#3. Отсортированный массив чисел вписать в текстовый файл и сохранить на рабочем столе пользователя.
+
+
+# 1 способ
+# сортировка с использованием функции sorted Phython
+
+
+oldlist = [15, 42, 79, 45, -79, 150, 0, 90, 157] 
+oldlist.sort(reverse = True) # используем функцию sorted 
+print(a)
+
+f = open('C:\\Users\\Serg\\Desktop\\zadanie1.txt', 'w') # сохраняем на рабочий стол
+for index in a:                #запись в файл, через цикл for
+     f.write(str(index)+',')  #добавим разделитель
+f.close()
+
+
+# 2 способ 
+# сортировка пузырьком
+oldlist =[15, 42, 79, 45, -79, 150, 0, 90, 157] 
+
+def bubble (mylist):
+    last_item = len(mylist)-1
+    for z in range (0, last_item):
+        for x in range (0, last_item):
+            print(mylist)
+            if mylist[x] < mylist[x+1]:
+                mylist[x], mylist[x+1] = mylist[x+1], mylist[x]
+    return mylist   
+print (newlist)
+f = open('C:\\Users\\Serg\\Desktop\\zadanie1.txt', 'w')
+for index in newlist:
+     f.write(str(index)+',')
+f.close()
