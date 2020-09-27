@@ -1,1 +1,29 @@
 
+
+
+
+import numpy as np
+import pandas as pd
+import pyodbc         #устанавливаем библиотеку 
+
+MDB = 'C:\\Users\\Serg\\Documents\\Задание\\TestBase.accdb'  #папка с бд
+DRV = '{Microsoft Access Driver (*.mdb, *.accdb)}'           #драйвер для работы с accdb в Python
+con = pyodbc.connect('DRIVER={};DBQ={}'.format(DRV, MDB))
+
+query = """select  * from  Fruits, vegetables  WHERE Fruits.id = vegetables.id;""" # методом select выбираем из таблиц Fruits, vegetables, значения с совпадающими id
+dataframe = pd.read_sql(query, con)      #запишем в dataframe
+print(dataframe)
+
+#убираем лишние столбцы код, id
+del dataframe['Код']
+del dataframe['id']
+print(dataframe)
+
+# создадим файл (в папке запуска проекта)
+writer = pd.ExcelWriter('zadanie_2.xlsx', engine='xlsxwriter')
+
+# Пишем свой dataframe  в файл
+dataframe.to_excel(writer, 'Sheet1')
+
+# сохраняем результат
+writer.save()
