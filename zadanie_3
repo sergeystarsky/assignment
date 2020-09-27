@@ -1,0 +1,31 @@
+#1. Открыть браузер Internet Explorer
+#2. Открыть страницу about:blank
+#3. Перейти на страницу http:\\button.dekel.ru\ (для примера)
+#4. Нажать на кнопку.
+
+#Ie 
+#Запускается на win7_драйвер  от 2017_12_01,  на win10, кнопка не нажалась, драйвер 2018г
+
+from selenium import webdriver 
+
+def main():
+    driver = webdriver.Ie() #скачиваем драйвер
+    driver.get ("http://button.dekel.ru/") #открываем сайт
+    btn_elem = driver.find_element_by_id("button") # указываем название класса (нажимаем на кнопку)
+    btn_elem.click()
+
+if __name__=="__main__":
+    main()
+    
+    
+#Chrome
+from selenium import webdriver
+
+def main():
+    driver = webdriver.Chrome() #скачиваем драйвер
+    driver.get("http://button.dekel.ru/") #открываем сайт
+    btn_elem = driver.find_element_by_id("button") #указываем название класса (нажимаем кнопку)
+    btn_elem.click()
+    
+if __name__=="__main__":
+    main()
